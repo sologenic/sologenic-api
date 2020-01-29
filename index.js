@@ -4,6 +4,7 @@ var app        = express();
 var bodyparser = require('body-parser');
 var fs         = require('fs');
 var path       = require('path');
+var config     = require('./lib/config');
 var methods    = {};
 
 fs.readdirSync('lib/jsonrpc').forEach(function(file) {
@@ -30,8 +31,9 @@ app.post('/', function(req, res) {
     return res.json(_.extend(response, { error: 'Invalid parameters.' }));
   }
 
-  var result = methods[method](parameters);
-  res.json(_.extend(response, result.error ? _.pick(result, 'error') : { result: result }));
+  methods[method](parameters, function(result) {
+    res.json(_.extend(response, result.error ? _.pick(result, 'error') : { result: result }));
+  });
 });
 
 var close = _.once(function() { server.close(); process.exit(); });
