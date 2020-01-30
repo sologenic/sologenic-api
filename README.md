@@ -2,6 +2,12 @@
 
 A JSON-RPC server providing set of API methods to be used by exchanges for fast & easy SOLO currency integration. Supposed to be run in private isolated network.
 
+## Configuration
+
+Use environment variables for configuration.
+
+`JSON_RPC_ENDPOINT` – rippled server URL (for testnet use https://s.altnet.rippletest.net:51234).
+
 ## API reference
 
 ### `get_balance`
