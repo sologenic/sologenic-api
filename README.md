@@ -7,6 +7,33 @@ A JSON-RPC server providing set of API methods to be used by exchanges for fast 
 Use environment variables for configuration.
 
 `JSON_RPC_ENDPOINT` – rippled server URL (for testnet use https://s.altnet.rippletest.net:51234).
+`APP_PORT` – server port (8080 by default).
+
+You can pass `TESTNET=true` to automatically configure server to use testnet.
+
+## Run the server
+
+There are 3 ways you can run the server.
+
+Using Docker:
+
+```shell script
+docker run -it -p 8080:8080 -e TESTNET=true TODO
+```
+
+docker-compose (by default runs in testnet):
+
+```shell script
+docker-compose up -d
+```
+
+Using locally installed Node.js:
+
+```shell script
+git clone git@github.com:sologenic/sologenic-api.git
+cd sologenic-api
+npm i && TESTNET=true node index.js
+```
 
 ## API reference
 
