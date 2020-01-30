@@ -23,12 +23,12 @@ app.post('/', function(req, res) {
 
   var method = req.body.method;
   if (!_.isString(method) || !methods[method]) {
-    return res.json(_.extend(response, { error: 'Invalid method.' }));
+    return res.json(_.extend(response, { error: 'invalid_method' }));
   }
 
   var parameters = req.body.params;
   if (!_.isPlainObject(parameters)) {
-    return res.json(_.extend(response, { error: 'Invalid parameters.' }));
+    return res.json(_.extend(response, { error: 'invalid_parameters' }));
   }
 
   methods[method](parameters, function(result) {
