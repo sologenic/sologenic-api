@@ -131,3 +131,21 @@ curl -H "Content-Type: application/json" -X POST \
    "result":"4A34D30DB25D6BF02F80CC714AD12F236DE4D2AA9B222FC6BF44780EE4364200"
 }
 ```
+
+### `get_status`
+
+Returns various status information (currently returns only last synced ledger). 
+
+```shell script
+curl -H "Content-Type: application/json" -X POST \
+     -d '{ "method": "get_status", "params": {} }' \
+     http://localhost:8080
+```
+
+```json
+{
+   "result":{
+      "latest_ledger":4194744
+   }
+}
+```
