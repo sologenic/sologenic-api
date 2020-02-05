@@ -18,7 +18,7 @@ There are 3 ways you can run the server.
 Using Docker:
 
 ```shell script
-docker run -it -p 8080:8080 -e TESTNET=true TODO
+docker run -it -p 8080:8080 -e TESTNET=true sologenic/sologenic-api
 ```
 
 docker-compose (by default runs in testnet):
